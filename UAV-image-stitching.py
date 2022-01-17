@@ -36,11 +36,14 @@ img_list = []
 for img in path:
     n = cv2.imread(img)
     img_list.append(n)
+    print(len(img_list))
 """Functions for stitching"""
 
 #Use ORB detector to extract keypoints
 orb = cv2.ORB_create(nfeatures=2000)
+i = 1
 while True:
+  print(len(img_list))
   img1=img_list.pop(0)
   img2=img_list.pop(0)
 # Find the key points and descriptors with ORB
@@ -79,10 +82,37 @@ while True:
     result = warpImages(img2, img1, M)
     
     img_list.insert(0,result)
+    cv2.imwrite(f'other images/result{i}.jpg', result)
+    i = i+1
+
     
-    if len(img_list)==1:
+    if len(img_list)<=1:
       break
-result = cv2.cvtColor(result, cv2.COLOR_BGR2RGB )  
+result = cv2.cvtColor(result, cv2.COLOR_BGR2RGB)  
+cv2.imwrite('other images/result.jpg', result)
 plt.imshow(result)
 plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
