@@ -36,7 +36,7 @@ img_list = []
 for img in path:
     n = cv2.imread(img)
     img_list.append(n)
-    print(len(img_list))
+    #print(len(img_list))
 """Functions for stitching"""
 
 #Use ORB detector to extract keypoints
