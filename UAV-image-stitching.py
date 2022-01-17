@@ -43,7 +43,7 @@ for img in path:
 orb = cv2.ORB_create(nfeatures=2000)
 i = 1
 while True:
-  print(len(img_list))
+  #print(len(img_list))
   img1=img_list.pop(0)
   img2=img_list.pop(0)
 # Find the key points and descriptors with ORB
